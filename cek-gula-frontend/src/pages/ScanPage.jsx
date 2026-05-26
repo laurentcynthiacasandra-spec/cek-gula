@@ -119,11 +119,18 @@ function ScanPage() {
           <div className="bg-green-700 text-white w-10 h-10 rounded-lg flex items-center justify-center text-xl">🍃</div>
           <span className="font-bold text-xl text-gray-800">Cek-Gula</span>
         </div>
-        <button
-          onClick={() => navigate('/diary')}
-          className="text-green-700 font-medium hover:underline text-sm">
-          📔 Food Diary
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/diary')}
+            className="text-green-700 font-medium hover:underline text-sm">
+            📔 Food Diary
+          </button>
+          <button
+            onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('user'); navigate('/login'); }}
+            className="text-red-600 font-medium hover:underline text-sm">
+            Logout
+          </button>
+        </div>
       </nav>
 
       <div className="flex flex-col items-center justify-center flex-1 px-4 py-12">

@@ -19,7 +19,7 @@ if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174"],
+  origin: ["http://localhost:5173", "http://localhost:5174", "https://cek-gula.vercel.app", "https://cek-gula-mg09s5nui-laurentcynthiacasandra-specs-projects.vercel.app"],
   credentials: true,
 }));
 app.use(express.json());

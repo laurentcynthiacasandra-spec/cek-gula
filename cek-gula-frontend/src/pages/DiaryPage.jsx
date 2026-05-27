@@ -23,6 +23,12 @@ function DiaryPage() {
       .finally(() => setLoading(false))
   }, [])
 
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    navigate('/login')
+  }
+
   const getCategoryColor = (category) => {
     if (category === 'Rendah') return 'text-green-600 bg-green-100'
     if (category === 'Normal') return 'text-yellow-600 bg-yellow-100'
@@ -34,20 +40,25 @@ function DiaryPage() {
 
   return (
     <div className="min-h-screen bg-green-50 flex flex-col">
-
       <nav className="bg-white shadow-sm px-8 py-4 flex justify-between items-center">
         <h1 className="text-green-600 font-bold text-2xl">🍃 Cek-Gula</h1>
-        <button
-          onClick={() => navigate('/scan')}
-          className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700">
-          + Scan Jajanan
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate('/scan')}
+            className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700">
+            + Scan Jajanan
+          </button>
+          <button
+            onClick={handleLogout}
+            className="text-red-600 font-medium hover:underline text-sm">
+            Logout
+          </button>
+        </div>
       </nav>
 
       <div className="px-4 py-8 max-w-2xl mx-auto w-full">
         <h2 className="text-2xl font-bold text-gray-800 mb-1">Food Diary</h2>
         <p className="text-gray-500 mb-6">Riwayat konsumsi harianmu</p>
-
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="bg-white rounded-xl p-4 shadow-sm text-center">
             <p className="text-gray-500 text-xs mb-1">Total Kalori Hari Ini</p>
@@ -80,7 +91,6 @@ function DiaryPage() {
                 </span>
               </div>
             ))}
-
             {entries.length === 0 && (
               <div className="text-center text-gray-400 mt-12">
                 <div className="text-4xl mb-3">📔</div>

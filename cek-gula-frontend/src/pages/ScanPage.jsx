@@ -120,16 +120,16 @@ function ScanPage() {
           <span className="font-bold text-xl text-gray-800">Cek-Gula</span>
         </div>
         <div className="flex items-center gap-4">
-          <button
-            onClick={() => navigate('/diary')}
-            className="text-green-700 font-medium hover:underline text-sm">
-            📔 Food Diary
-          </button>
-          <button
-            onClick={() => { localStorage.removeItem('token'); localStorage.removeItem('user'); navigate('/login'); }}
-            className="text-red-600 font-medium hover:underline text-sm">
-            Logout
-          </button>
+  <button onClick={() => navigate('/diary')} className="text-green-700 font-medium hover:underline text-sm">
+    📔 Food Diary
+  </button>
+  <a href="https://dashboard-cek-gula.streamlit.app/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-medium hover:underline text-sm">
+    📊 Dashboard
+  </a>
+  <button onClick={handleLogout} className="text-red-600 font-medium hover:underline text-sm">
+    Logout
+  </button>
+</div>
         </div>
       </nav>
 

@@ -8,6 +8,12 @@ const authHeaders = () => ({
 })
 
 const handleResponse = async (res) => {
+  if (res.status === 401) {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    window.location.href = '/login'
+    throw new Error('Sesi kadaluarsa, silakan login ulang.')
+  }
   const data = await res.json()
   if (!res.ok) throw new Error(data.message || 'Terjadi kesalahan.')
   return data

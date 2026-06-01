@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@media (max-width: 768px) {
+  .desktop-menu { display: none !important; }
+  .hamburger-btn { display: flex !important; }
+  .mobile-menu { display: flex !important; }
+  #hero { flex-direction: column !important; padding: 2rem 1.5rem !important; }
+  .hero-image { margin-top: 2rem; }
+  .hero-buttons { flex-direction: column !important; }
+  .fitur-grid { grid-template-columns: 1fr !important; }
+  .artikel-grid { grid-template-columns: 1fr !important; }
+  .tentang-wrapper { flex-direction: column !important; }
+  .footer-wrapper { flex-direction: column !important; gap: 2rem; }
+  .px-16 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+}
+
+@media (min-width: 769px) {
+  .hamburger-btn { display: none !important; }
+  .mobile-menu { display: none !important; }
+}

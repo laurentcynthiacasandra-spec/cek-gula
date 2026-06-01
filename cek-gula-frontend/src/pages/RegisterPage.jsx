@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { registerUser } from '../services/api'
 
 function RegisterPage() {
@@ -156,19 +156,6 @@ function RegisterPage() {
                 Mendaftarkan...
               </span>
             ) : 'Buat Akun'}
-          </button>
-
-          <div className="flex items-center gap-4 my-4">
-            <div className="flex-1 h-[1px] bg-gray-100"></div>
-            <span className="text-gray-300 text-[10px] font-bold uppercase tracking-widest">Atau</span>
-            <div className="flex-1 h-[1px] bg-gray-100"></div>
-          </div>
-
-          <button
-            type="button"
-            className="w-full border-2 border-gray-50 text-gray-700 py-3 rounded-2xl font-bold hover:bg-gray-50 active:scale-[0.98] transition-all flex items-center justify-center gap-3 text-sm">
-            <FaGoogle className="text-red-500" size={18} />
-            Daftar dengan Google
           </button>
         </div>
 

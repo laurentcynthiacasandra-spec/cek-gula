@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { loginUser } from '../services/api'
 
 function LoginPage() {
@@ -68,10 +68,8 @@ function LoginPage() {
           </div>
 
           <div>
-            <div className="flex justify-between items-center mb-1">
-              <label className="text-xs text-gray-500 font-bold uppercase tracking-wider ml-1">Password</label>
-            </div>
-            <div className="relative">
+            <label className="text-xs text-gray-500 font-bold uppercase tracking-wider ml-1">Password</label>
+            <div className="relative mt-1">
               <input
                 type={showPassword ? 'text' : 'password'}
                 name="password"
@@ -96,17 +94,6 @@ function LoginPage() {
             {loading ? 'Memproses...' : 'Masuk'}
           </button>
         </form>
-
-        <div className="flex items-center gap-3 my-6">
-          <div className="flex-1 h-px bg-gray-100"></div>
-          <span className="text-gray-300 text-[10px] font-bold uppercase">Atau</span>
-          <div className="flex-1 h-px bg-gray-100"></div>
-        </div>
-
-        <button className="w-full border border-gray-100 text-gray-600 py-3 rounded-2xl font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-3 text-sm">
-          <FaGoogle className="text-red-500" size={16} />
-          Masuk dengan Google
-        </button>
 
         <p className="text-center text-sm text-gray-400 mt-8 font-medium">
           Belum punya akun?{' '}

@@ -50,4 +50,104 @@ Model dilatih menggunakan arsitektur MobileNetV3 dengan dataset 50+ jenis jajana
 - PostgreSQL
 
 ### 1. Clone Repository
-```bash
+
+    git clone https://github.com/laurentcynthiacasandra-spec/cek-gula.git
+    cd cek-gula
+
+### 2. Setup Backend
+
+    cd cek-gula-backend
+    npm install
+    cp .env.example .env
+    node import_nutrisi.js
+    npm start
+
+Backend berjalan di: http://localhost:5000
+
+### 3. Setup Frontend
+
+    cd cek-gula-frontend
+    npm install
+    cp .env.example .env
+    npm run dev
+
+Frontend berjalan di: http://localhost:5173
+
+---
+
+## 🔐 Environment Variables
+
+### Backend `cek-gula-backend/.env`
+
+| Variable | Deskripsi |
+|----------|-----------|
+| DATABASE_URL | Connection string PostgreSQL |
+| JWT_SECRET | Secret key untuk JWT |
+| PORT | Port server (default 5000) |
+| AI_MODEL_URL | URL Hugging Face model |
+
+### Frontend `cek-gula-frontend/.env`
+
+| Variable | Deskripsi |
+|----------|-----------|
+| VITE_API_URL | URL backend API |
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Deskripsi |
+|--------|----------|-----------|
+| POST | /api/auth/register | Daftar akun baru |
+| POST | /api/auth/login | Login |
+| GET | /api/auth/me | Data user login |
+| POST | /api/gula/scan | Upload foto & deteksi |
+| GET | /api/gula/history | Riwayat scan |
+| GET | /api/nutrisi | Cari data nutrisi |
+| GET | /api/diary | Lihat diary hari ini |
+| POST | /api/diary | Tambah entri diary |
+| DELETE | /api/diary/:id | Hapus entri diary |
+
+---
+
+## 📂 Struktur Folder
+
+    cek-gula/
+    ├── cek-gula-backend/
+    │   ├── controllers/
+    │   ├── routes/
+    │   ├── middleware/
+    │   ├── services/
+    │   ├── db/
+    │   ├── uploads/
+    │   ├── .env.example
+    │   ├── import_nutrisi.js
+    │   └── server.js
+    ├── cek-gula-frontend/
+    │   ├── src/
+    │   │   ├── pages/
+    │   │   ├── components/
+    │   │   └── services/
+    │   ├── .env.example
+    │   └── vite.config.js
+    ├── dataset_nutrisi_lengkap.csv
+    └── README.md
+
+---
+
+## 👥 Tim Pengembang
+
+**ID Tim: CC26-PSU007**
+
+| Nama | Role |
+|------|------|
+| Novandra Wichda Farun | AI Engineer |
+| Radhia Aulia Nisa | AI Engineer |
+| Joel Wiseda Simanungkalit | Data Scientist |
+| Karin Galuh Dea Pramesti | Data Scientist |
+| Wulan Pristia Nanda | Full Stack Web Developer |
+| Laurent Cynthia Casandra | Full Stack Web Developer |
+
+---
+
+> ⚠️ Aplikasi ini bersifat preventif dan edukatif, bukan pengganti saran medis profesional.
